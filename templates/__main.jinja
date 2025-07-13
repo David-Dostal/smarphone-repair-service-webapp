@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Továrna na telefony</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+  </head>
+
+  <body>
+    <!-- Include navigation -->
+    {% include '__nav.jinja' %}
+
+    <!-- Form macro helper -->
+    {% macro render_field(field) %}
+    <dt>{{ field.label }}
+    <dd>{{ field(**kwargs)|safe }}
+    {% if field.errors %}
+        <ul class=errors>
+        {% for error in field.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    </dd>
+    {% endmacro %}
+
+    <!-- Flash messages -->
+    <main>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class=flashes>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+
+      <!-- Render main content -->
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    <!-- Include footer -->
+    {% include '__footer.jinja' %}
+  </body>
+</html>

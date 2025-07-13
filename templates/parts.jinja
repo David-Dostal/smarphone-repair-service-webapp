@@ -1,0 +1,58 @@
+{% extends '__main.jinja' %}
+
+{% block content %}
+    <section>
+            <div class="middle_text">
+                <h2>Všechny součástky</h2>
+            </div>
+            <div class="middle_text">
+                <h3>Baterie</h3>
+            </div>
+            <div class="products">
+                {% for product in batteries %}
+                    <div class="product">
+                        <h3 class="product-title">{{ product.name }}</h3>
+                        <div class="product-price">
+                            <p>${{ product.price }}</p>
+                            <p>${{ product.stock }}</p>
+                        </div>
+
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="middle_text">
+                <h3>Procesory</h3>
+            </div>
+            <div class="products">
+                {% for product in processors %}
+                    <div class="product">
+                        <h3 class="product-title">{{ product.name }}</h3>
+                        <div class="product-price">
+                            <p>${{ product.price }}</p>
+                            <p>${{ product.stock }}</p>
+                           
+                        </div>
+
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="middle_text">
+                <h3>Kryty</h3>
+            </div>
+            <div class="products">
+                {% for product in cases %}
+                    <div class="product">
+                        <h3 class="product-title">{{ product.name }}</h3>
+                        <div class="product-price">
+                            <p>${{ product.price }}</p>
+                            <p>${{ product.stock }}</p>
+                        </div>
+
+                    </div>
+                {% endfor %}
+            </div>
+   </section>
+{% endblock %}
+

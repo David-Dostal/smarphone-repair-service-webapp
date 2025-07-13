@@ -1,0 +1,26 @@
+{% extends '__main.jinja' %}
+
+{% block content %}
+    <section>
+        <div class="middle_text">
+            <h2>Všechny telefony</h2>
+        </div>
+            <div class="products">
+            {% for product in phones %}
+                <div class="product">
+                <h3 class="product-title">{{ product.name }}</h3>
+                <img class="product-img" src="{{ product.img }}" alt="{{ product.name }}">
+                <div class="product-price">
+                    <p>${{ product.final_price }}</p>
+                </div>
+                </div>
+            {% endfor %}
+            </div>
+            {% if session['authenticated'] and session['role'] == 'admin' %}
+            {% endif%}
+   </section>
+   <section>
+        <a href="{{url_for('view_new_product')}}" class='product-add-new'>+</a>
+   </section>
+{% endblock %}
+

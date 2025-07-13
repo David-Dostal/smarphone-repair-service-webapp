@@ -1,0 +1,12 @@
+{% extends '__main.jinja' %}
+
+{% block content %}
+
+<section>
+  <form method=post>
+        {{ render_field(form.login, placeholder=form.login.label.text) }}
+        {{ render_field(form.password, placeholder=form.password.label.text)  }}
+      <input class="button submit-button" type="submit" value="Přihlaš se">
+    </form>
+</section>
+{% endblock %}

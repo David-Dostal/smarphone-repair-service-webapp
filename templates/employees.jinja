@@ -1,0 +1,28 @@
+{% extends '__main.jinja' %}
+
+{% block content %}
+<section>
+  <table>
+    <thead>
+      <tr>
+        <th>Jméno</th>
+        <th>Příjmení</th>
+        <th>Telefon</th>
+        <th>Email</th>
+        <th>Hodinová sazba</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for employee in employees %}
+      <tr>
+        <td>{{employee.name}}</td>
+        <td>{{employee.surname}}</td>
+        <td>{{employee.telephone}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.hourly_rate}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends '__main.jinja' %}
+
+{% block content %}
+  {% macro render_field(field) %}
+  <dt>{{ field.label }}
+  <dd>{{ field(**kwargs)|safe }}
+  {% if field.errors %}
+      <ul class=errors>
+      {% for error in field.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+      </ul>
+  {% endif %}
+  </dd>
+  {% endmacro %}
+
+
+  <section>
+    <form method=post>
+        <dl>
+          {{ render_field(form.id_user, placeholder=form.id_user.label.text) }}
+        </dl>
+        <input class="submit-button" type="submit" value=Smaž>
+      </form>
+  </section>
+{% endblock %}

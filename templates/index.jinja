@@ -1,0 +1,18 @@
+{% extends '__main.jinja' %}
+
+{% block content %}
+    <section>
+    <div class="middle_text">
+      <h1>Továrna na telefony:</h1>
+      <h2>Výroba kvalitních mobilních zařízení pro vás</h2>
+    </div>
+    </section>
+  <section>
+    <div class="main_left"> 
+      <img src="{{url_for('static', filename='img/iphonemain.png')}}">
+    </div>
+    <div class="main_right"> 
+      <img src="{{url_for('static', filename='img/samsungmain.jpg')}}">
+    </div>
+  </section>
+{% endblock%}

@@ -1,0 +1,33 @@
+{% extends '__main.jinja' %}
+
+{% block content %}
+  {% macro render_field(field) %}
+  <dt>{{ field.label }}
+  <dd>{{ field(**kwargs)|safe }}
+  {% if field.errors %}
+      <ul class=errors>
+      {% for error in field.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+      </ul>
+  {% endif %}
+  </dd>
+  {% endmacro %}
+
+
+  <section>
+    <form method=post>
+        <dl>
+          {{ render_field(form.labour_intensity, placeholder=form.labour_intensity.label.text) }}
+          {{ render_field(form.name, placeholder=form.name.label.text) }}
+          {{ render_field(form.type, placeholder=form.type.label.text ) }}
+          {{ render_field(form.img, placeholder=form.img.label.text ) }}
+          {{ render_field(form.user_id_employee) }}
+          {{ render_field(form.cases_id_case) }}
+          {{ render_field(form.processors_id_processor) }}
+          {{ render_field(form.batteries_id_battery) }}
+        </dl>
+        <input class="submit-button" type="submit" value="Přidej">
+      </form>
+  </section>
+{% endblock %}

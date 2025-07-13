@@ -1,0 +1,21 @@
+{% block nav %}
+    <nav>
+        <a href="{{url_for('index')}}">Domů</a>
+        {% if session['authenticated'] %}
+                <a href="{{url_for('view_products_page')}}">Produkty</a>
+                <a href="{{url_for('view_edit_user')}}">Editace profilu</a>
+            {% if session['id_user']<=2 %}
+                <a href="{{url_for('view_parts_page')}}">Díly</a>
+                <a href="{{url_for('view_employees_page')}}">Zaměstnanci</a>
+            {% endif %}
+            {% if session['id_user']==1 %}
+                <a href="{{url_for('view_new_user')}}">Přidat Uživatele</a>
+                <a href="{{url_for('delete_user')}}">Smazat Uživatele</a>
+            {% endif %}
+
+        <a href="{{url_for('signout')}}">Odhlásit {{session['login']}}</a> 
+        {% else %}
+            <a href="{{url_for('view_sign_in')}}">Přihlásit</a>
+        {% endif %}
+    </nav>
+{% endblock%}
